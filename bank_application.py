@@ -14,8 +14,8 @@ class Bank:
             x,decison = check_name(account_id,account_pwd)                      # here x is the id
         if decison != None:
             print("We have this account ",decison)
-            while(True):
-              n=str(input('For DEPOSIT :   type 1\nfor WITHDRAW :  type 2\nfor EXIT:\ttype 0\n'))
+            while (True):
+              n = str(input('For DEPOSIT :   type 1\nfor WITHDRAW :  type 2\nfor EXIT:\ttype 0\n'))
               if (n=='1'):
                 self.deposit(x)                                                       # here x is the id
               elif (n=='2'):
@@ -44,7 +44,7 @@ class Bank:
     
     def deposit(self,id):                                       # for deposit and updating Balance
         global d1
-        id= int(id)
+        id = int(id)
         amount = int(input('Enter deposit amount : '))
         d1['detail'][id]['Balance'] +=amount
         print(d1['detail'][id])
@@ -53,9 +53,9 @@ class Bank:
 
     def withdraw(self,id):                                  # for withdrawing and updating Balance
         global d1
-        id= int(id)
+        id = int(id)
         amount = int(input('Enter withdraw amount   : '))
-        if(d1['detail'][id]['Balance']>=amount):
+        if (d1['detail'][id]['Balance']>=amount):
             d1['detail'][id]['Balance'] -=amount
             print(d1['detail'][id])
         else:
@@ -83,7 +83,7 @@ def check_name(name,pwd):
 def check_id(id,pwd):
     try:
         id = int(id)
-        if(pwd==d1['auth'][id]):
+        if (pwd==d1['auth'][id]):
             acc_detail = d1['detail'][id]
             return acc_detail
         else:
@@ -96,7 +96,7 @@ with open('demo.txt','r') as file1:
     i = file1.read()
     i = ast.literal_eval(i)                                           #converted string to dictinory
 d1 = dict(i)
-while(True):
+while (True):
     print('\n******************** Welcome To ABC Bank **************************' )
     log = input('For SIGNIN :   type 1\nfor SIGNUP :   type 2\n')
     x = Bank()
