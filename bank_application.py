@@ -13,7 +13,7 @@ class Bank:
         if decison == None:
             x,decison = check_name(account_id,account_pwd)                      # here x is the id
         if decison != None:
-            print("We have this account ",decison)
+            print("We have this account ", decison)
             while (True):
               n = str(input('For DEPOSIT :   type 1\nfor WITHDRAW :  type 2\nfor EXIT:\ttype 0\n'))
               if (n=='1'):
@@ -46,7 +46,7 @@ class Bank:
         global d1
         id = int(id)
         amount = int(input('Enter deposit amount : '))
-        d1['detail'][id]['Balance'] +=amount
+        d1['detail'][id]['Balance'] += amount
         print(d1['detail'][id])
         with open('demo.txt','w') as file1:
             file1.write(str(d1))
@@ -56,7 +56,7 @@ class Bank:
         id = int(id)
         amount = int(input('Enter withdraw amount   : '))
         if (d1['detail'][id]['Balance']>=amount):
-            d1['detail'][id]['Balance'] -=amount
+            d1['detail'][id]['Balance'] -= amount
             print(d1['detail'][id])
         else:
             print('You Have Insufficiant Balance!!!! ')
@@ -92,7 +92,7 @@ def check_id(id,pwd):
         return None
 
 
-with open('demo.txt','r') as file1:
+with open('demo.txt','r') as file1:                         # use path if demo.txt in other location inside 'file_pathname' 
     i = file1.read()
     i = ast.literal_eval(i)                                           #converted string to dictinory
 d1 = dict(i)
