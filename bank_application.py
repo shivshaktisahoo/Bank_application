@@ -1,5 +1,5 @@
 # ************************************* BANK_APPLICATION **********************************
-
+import ast
 class Bank:
     def __init__(self):
         pass
@@ -31,7 +31,7 @@ class Bank:
     # New User Signup Function/method
     def signup(self):
         global d1
-        sub_d1=dict()
+        sub_d1 = dict()
         id = max(d1['detail'].keys()) + 1
         sub_d1["Name"] = input('Enter ur name : ')
         sub_d1['Balance'] = 0
@@ -70,7 +70,7 @@ def check_name(name,pwd):
     for id, details in d1['detail'].items():
         try:
             if (d1['detail'][id]['Name']).lower() == name.lower():
-                if(pwd==d1['auth'][id]):
+                if (pwd==d1['auth'][id]):
                     return id,details
                 else:
                     print('Wrong Password')     
@@ -93,13 +93,13 @@ def check_id(id,pwd):
 
 
 with open('demo.txt','r') as file1:
-    i=file1.read()
-    i=eval(i)                                           #converted string to dictinory
-d1=dict(i)
+    i = file1.read()
+    i = ast.literal_eval(i)                                           #converted string to dictinory
+d1 = dict(i)
 while(True):
     print('\n******************** Welcome To ABC Bank **************************' )
     log = input('For SIGNIN :   type 1\nfor SIGNUP :   type 2\n')
-    x=Bank()
+    x = Bank()
     if log == '1':
         x.signin()
         break
